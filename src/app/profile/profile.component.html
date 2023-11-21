@@ -1,0 +1,198 @@
+<section
+  class=""
+  style="
+    position: absolute;
+    top: 0;
+    bottom: 65px;
+    left: 0px;
+    right: 0px;
+    overflow: auto;
+  "
+>
+  <div class="container-fluid px-lg-5 px-md-3">
+    <div class="py-4 text-center">
+      <h3>Free E-Digital Card Generator</h3>
+      <label class="py-2 label-text"
+        >Create your free custom E-Digital Card with our easy-to-use
+        generator.</label
+      >
+      <div class="card-url-bg py-4" *ngIf="cardUrl">
+        <img src="assets/images/pin.svg" width="50" />
+        <label class="label-text px-md-2 py-2"
+          >Get your digital card link
+          <a
+            class="py-2 px-3 ms-md-2 card-url"
+            [href]="Web_URL + cardUrl"
+            target="_blank"
+            >{{ Web_URL + cardUrl }}</a
+          >
+        </label>
+        <button
+          (click)="copyMessage()"
+          class="btn btn-primary btn-rounded px-3 py-2 mx-2"
+        >
+          Copy Link
+        </button>
+      </div>
+    </div>
+    <div class="sections py-4">
+      <div>
+        <nav class="pb-5">
+          <div
+            class="nav nav-tabs justify-content-around"
+            id="nav-tab"
+            role="tablist"
+          >
+            <button
+              [class]="activeTab == 'home' ? 'active' : ''"
+              class="nav-link"
+              id="nav-home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-home"
+              type="button"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+              (click)="activeTab = 'home'"
+            >
+              Home
+            </button>
+            <button
+              [class]="activeTab == 'about' ? 'active' : ''"
+              class="nav-link"
+              id="nav-about-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-about"
+              type="button"
+              role="tab"
+              aria-controls="nav-about"
+              aria-selected="false"
+              (click)="activeTab = 'about'"
+            >
+              About US
+            </button>
+            <button
+              [class]="activeTab == 'product' ? 'active' : ''"
+              class="nav-link"
+              id="nav-products-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-products"
+              type="button"
+              role="tab"
+              aria-controls="nav-products"
+              aria-selected="false"
+              (click)="activeTab = 'product'"
+            >
+              Products
+            </button>
+            <button
+              [class]="activeTab == 'payment' ? 'active' : ''"
+              class="nav-link"
+              id="nav-payment-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-payment"
+              type="button"
+              role="tab"
+              aria-controls="nav-payment"
+              aria-selected="false"
+              (click)="activeTab = 'payment'"
+            >
+              Payment Details
+            </button>
+            <button
+              [class]="activeTab == 'gallery' ? 'active' : ''"
+              class="nav-link"
+              id="nav-gallery-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-gallery"
+              type="button"
+              role="tab"
+              aria-controls="nav-gallery"
+              aria-selected="false"
+              (click)="activeTab = 'gallery'"
+            >
+              Gallery
+            </button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            [class]="activeTab == 'home' ? 'show active' : ''"
+            class="tab-pane fade"
+            id="nav-home"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+            <app-home-web
+              [companyDetails]="companyProfile"
+              (updateTabName)="cardUrl = $event; activeTab = 'about'"
+            ></app-home-web>
+          </div>
+          <div
+            [class]="activeTab == 'about' ? 'show active' : ''"
+            class="tab-pane fade"
+            id="nav-about"
+            role="tabpanel"
+            aria-labelledby="nav-about-tab"
+          >
+            <app-about
+              [aboutCompanyDetail]="aboutCompany"
+              (updateTabName)="activeTab = 'product'"
+            ></app-about>
+          </div>
+          <div
+            [class]="activeTab == 'product' ? 'show active' : ''"
+            class="tab-pane fade"
+            id="nav-products"
+            role="tabpanel"
+            aria-labelledby="nav-products-tab"
+          >
+            <app-products
+              *ngIf="isLoadChildComponent"
+              [product]="products"
+              (updateTabName)="activeTab = 'payment'"
+            ></app-products>
+          </div>
+          <div
+            [class]="activeTab == 'payment' ? 'show active' : ''"
+            class="tab-pane fade"
+            id="nav-payment"
+            role="tabpanel"
+            aria-labelledby="nav-payment-tab"
+          >
+            <app-payment
+              *ngIf="isLoadChildComponent"
+              [payment]="payment"
+              (updateTabName)="activeTab = 'gallery'"
+            ></app-payment>
+          </div>
+          <div
+            [class]="activeTab == 'gallery' ? 'show active' : ''"
+            class="tab-pane fade"
+            id="nav-gallery"
+            role="tabpanel"
+            aria-labelledby="nav-gallery-tab"
+          >
+            <app-gallery
+              *ngIf="isLoadChildComponent"
+              [gallery]="gallery"
+            ></app-gallery>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div
+  id="footer"
+  style="
+    position: absolute;
+    bottom: 0px;
+    height: 65px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+  "
+>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,137 @@
+<div>
+  <div
+    class="modal fade"
+    id="loginModal-gallery"
+    aria-hidden="true"
+    aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="border-bottom: none">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div>
+          <div class="text-center py-3">
+            <label class="form-label label-text"
+              >If you don’t have account you can
+              <button
+                class="btn btn-text text-uppercase btn-block btn-text-weight"
+                data-bs-target="#signup-gallery"
+                data-bs-toggle="modal"
+                data-bs-dismiss="modal"
+              >
+                Register here!
+              </button></label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Register modal -->
+  <div
+    class="modal fade"
+    id="signup-gallery"
+    aria-hidden="true"
+    aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="border-bottom: none">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="text-center py-3">
+          <label class="form-label label-text"
+            >Already have an account?
+            <button
+              class="btn btn-text text-uppercase btn-block btn-text-weight"
+              data-bs-target="#loginModal-gallery"
+              data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+            >
+              Sign In
+            </button></label
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-md-flex justify-content-between align-items-center">
+    <label class="d-flex"
+      ><h5>Gallery</h5>
+      (Upload maximum 10 pictures)</label
+    >
+    <div>
+      <input
+        class="image-input"
+        type="file"
+        accept="image/*"
+        (change)="uploadImage($any($event).target.files)"
+        multiple
+      />
+      <button type="button" class="btn btn-text">
+        <img src="assets/images/camera.svg" /><span class="px-2 text-black"
+          >Upload Image</span
+        >
+      </button>
+    </div>
+  </div>
+  <div class="py-4">
+    <div class="images">
+      <div *ngIf="imageList.length > 0" class="row">
+        <div
+          class="col-12 col-md-4 col-lg-3 col-xl-2 col-sm-6"
+          *ngFor="let img of imageList; let i = index"
+        >
+          <div class="img-btn">
+            <button
+              class="btn btn-text"
+              (click)="
+                img.Id == 0 ? deleteImage(i) : RemoveGalleryImage(img.Id)
+              "
+            >
+              <img src="assets/images/delete.svg" />
+            </button>
+            <img *ngIf="img.Id == 0; else showImage" [src]="img.ImagePath" />
+            <ng-template #showImage>
+              <img [src]="API_URL + img.ImagePath" />
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button
+      *ngIf="userId; else showModal"
+      class="btn btn-primary btn-rounded btn-width btn-block"
+      type="button"
+      (click)="UpdateGalleryImage()"
+    >
+      Save & View Card
+    </button>
+    <ng-template #showModal>
+      <button
+        class="btn btn-primary btn-rounded btn-width btn-block"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loginModal-gallery"
+      >
+        Save & View Card
+      </button>
+    </ng-template>
+  </div>
+</div>

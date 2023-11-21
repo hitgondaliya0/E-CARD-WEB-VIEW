@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&family=Roboto&display=swap');
+
+.profile-name {
+color: #2A3342;
+font-family: Poppins;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: 0.15px;
+}
+
+.profile-username {
+    color: #888FA6;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.25px;
+}
+.btn-edit-profile {
+border-radius: 100px;
+background: #F5F5F5;
+display: flex;
+padding: 10px 24px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+font-size: 20px;
+border: none;
+}
+.setting-general{
+    color: #888FA6;
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 600; 
+line-height: 20px; /* 142.857% */
+letter-spacing: 0.1px;
+}
+.setting-menu {
+color: #2A3342;
+font-family: Poppins;
+font-size: 17px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 150% */
+letter-spacing: 0.15px;
+}
+.setting {
+color: var(--Black, #2A3342);
+font-family: Inter;
+font-size: 23px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: -0.3px;
+}

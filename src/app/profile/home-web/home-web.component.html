@@ -1,0 +1,364 @@
+<div>
+  <h5>Company Details</h5>
+  <div class="py-4 d-flex align-items-center">
+    <div class="dropzone">
+      <input
+        class="drag-drop-input"
+        type="file"
+        accept="image/*"
+        (change)="uploadProfilePicture($any($event).target.files)"
+      />
+      <div class="img-border">
+        <img
+          *ngIf="profilePicture == '' || profilePicture == null; else showImage"
+          class="p-4"
+          src="assets/images/camera.svg"
+        />
+        <ng-template #showImage
+          ><img [src]="profilePicture" width="100%" height="100%"
+        /></ng-template>
+      </div>
+    </div>
+    <div style="width: 300px">
+      <label class="label-text px-3">Upload a Company Logo</label>
+      <button
+        type="button"
+        class="btn btn-text primary px-3"
+        (click)="removeProfilePicture()"
+      >
+        Remove Picture
+      </button>
+    </div>
+  </div>
+  <div class="information">
+    <form [formGroup]="companyForm">
+      <div class="row">
+        <div class="col-12 col-lg-4 col-md-4 col-sm-12">
+          <label class="form-label"
+            >Company Name<label class="danger--message">*</label></label
+          >
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Company Name"
+            [(ngModel)]="name"
+            formControlName="name"
+          />
+          <div
+            *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)"
+            class="danger--message"
+          >
+            <small *ngIf="f['name'].errors?.['required']">
+              Name is required
+            </small>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 col-md-4 col-sm-12">
+          <label class="form-label"
+            >Company phone no.<label class="danger--message">*</label></label
+          >
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Company phone no."
+            [(ngModel)]="contactNo"
+            formControlName="contact"
+          />
+          <div
+            *ngIf="
+              f['contact'].invalid &&
+              (f['contact'].dirty || f['contact'].touched)
+            "
+            class="danger--message"
+          >
+            <small *ngIf="f['contact'].errors?.['required']">
+              Phone number is required
+            </small>
+            <small *ngIf="f['contact'].errors?.['pattern']">
+              Please enter valid phone number
+            </small>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 col-md-4 col-sm-12">
+          <label class="form-label"
+            >Company Website<label class="danger--message">*</label></label
+          >
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Company Website"
+            [(ngModel)]="website"
+            formControlName="website"
+          />
+          <div
+            *ngIf="
+              f['website'].invalid &&
+              (f['website'].dirty || f['website'].touched)
+            "
+            class="danger--message"
+          >
+            <small *ngIf="f['website'].errors?.['required']">
+              Website is required
+            </small>
+          </div>
+        </div>
+        <div class="col-12 col-lg-8 col-md-8 col-sm-12">
+          <label class="form-label"
+            >Company Address<label class="danger--message">*</label></label
+          >
+          <textarea
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Company Address"
+            style="height: 60px"
+            [(ngModel)]="address"
+            formControlName="address"
+          ></textarea>
+          <div
+            *ngIf="
+              f['address'].invalid &&
+              (f['address'].dirty || f['address'].touched)
+            "
+            class="danger--message"
+          >
+            <small *ngIf="f['address'].errors?.['required']">
+              Address is required
+            </small>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+          <label class="form-label"
+            >Company Whatsapp No.<label class="danger--message">*</label></label
+          >
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Company Whatsapp No."
+            [(ngModel)]="whatsappNo"
+            formControlName="whatsappNo"
+          />
+          <div
+            *ngIf="
+              f['whatsappNo'].invalid &&
+              (f['whatsappNo'].dirty || f['whatsappNo'].touched)
+            "
+            class="danger--message"
+          >
+            <small *ngIf="f['whatsappNo'].errors?.['required']">
+              Whatsapp number is required
+            </small>
+            <small *ngIf="f['whatsappNo'].errors?.['pattern']">
+              Please enter valid whatsapp number
+            </small>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="userId" class="col-12 col-lg-12 col-md-12 col-sm-12">
+        <label class="form-label"
+          >Digital Card URL<label class="danger--message">*</label></label
+        >
+        <div class="input-group text-center align-items-center">
+          <h4 class="form-label label-text digital-card-url">
+            {{ Web_URL }}
+          </h4>
+          <div class="d-flex align-items-center col-md-4 col-12 px-0">
+            <input
+              type="text"
+              class="form-control col-md-4 form-control-lg mx-md-2"
+              placeholder="Digital Card URL"
+              [(ngModel)]="cardUrl"
+              formControlName="cardUrl"
+              (blur)="cardUrl ? checkCardUrl() : ''"
+            />
+            <button
+              *ngIf="isShowCardCopyButton && cardUrl"
+              (click)="copyUrl()"
+              class="btn btn-primary mx-2 border-radius"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+          <div class="form-group">
+            <label class="form-label"
+              >Company Owner/s<label class="danger--message">*</label></label
+            >
+            <div class="input-group py-1">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Ex. Ram patel"
+                [(ngModel)]="companyOwner"
+                formControlName="owner"
+                (blur)="addOwner()"
+              />
+              <div class="input-group-addon input--plus-button">
+                <button
+                  type="button"
+                  (click)="addOwner()"
+                  class="btn px-0 btn-text px-2"
+                  [disabled]="companyOwner == ''"
+                >
+                  ADD
+                </button>
+              </div>
+            </div>
+            <div
+              *ngIf="
+                (f['owner'].invalid &&
+                  (f['owner'].dirty || f['owner'].touched)) ||
+                companyOwnersList.length == 0
+              "
+            >
+              <div *ngIf="companyOwnersList.length == 0">Please add owner.</div>
+            </div>
+          </div>
+          <div
+            class="py-1"
+            *ngFor="let owner of companyOwnersList; let i = index"
+          >
+            <div class="chip d-flex justify-content-between px-2">
+              <p class="my-2">{{ owner }}</p>
+              <div style="width: 20px" class="my-2">
+                <a (click)="deleteOwner(i)">
+                  <i class="close fas fa-times"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="social-links py-3">
+    <h5>Enter Your Social Links</h5>
+    <div class="row">
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Facebook</label>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/facebook.svg" width="55" height="55" />
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Facebook"
+            [(ngModel)]="facebookLink"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Linkedin</label>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/linkedIn.svg" width="55" height="55" />
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Linkedin"
+            [(ngModel)]="linkedinLink"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Instagram</label>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/instagram.svg" width="55" height="55" />
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Instagram"
+            [(ngModel)]="instagramLink"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Twitter</label>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/twitter.svg" width="55" height="55" />
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Twitter"
+            [(ngModel)]="twitterLink"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Pinterest</label>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/pinterest.svg" width="55" height="55" />
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Pinterest"
+            [(ngModel)]="pinterestLink"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Youtube</label>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/youtube.svg" width="55" height="55" />
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Youtube"
+            [(ngModel)]="youtubeLink"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Telegram</label>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/telegram.svg" width="55" height="55" />
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Telegram"
+            [(ngModel)]="telegramLink"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Add Manual link</label>
+        <input
+          type="text"
+          class="form-control form-control-lg ms-0"
+          placeholder="Please add manual link"
+          [(ngModel)]="manualLink"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button
+      *ngIf="userId; else showModal"
+      class="btn btn-primary btn-rounded btn-width btn-block"
+      type="button"
+      (click)="cardUrl ? handleUpdateCompanyDetails() : ''"
+    >
+      Save & continue
+    </button>
+    <ng-template #showModal>
+      <button
+        *ngIf="checkValidation(); else showOtherButton"
+        class="btn btn-primary btn-rounded btn-width btn-block"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loginModal"
+      >
+        Save & continue
+      </button>
+    </ng-template>
+    <ng-template #showOtherButton>
+      <button
+        class="btn btn-primary btn-rounded btn-width btn-block"
+        type="button"
+        (click)="showMessage()"
+      >
+        Save & continue
+      </button>
+    </ng-template>
+  </div>
+</div>

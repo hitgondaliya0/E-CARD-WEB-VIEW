@@ -1,0 +1,40 @@
+.image-input {
+	opacity: 0;
+	position: absolute;
+	width: 200px;
+	height: 50px;
+	cursor: pointer;
+}
+.images img {
+	border-radius: 10px;
+	width: 210px;
+	height: 210px;
+}
+
+.images .btn-text img {
+	width: 20px;
+	height: 20px;
+}
+
+.img-btn .btn {
+	position: absolute;
+	float: right;
+	background-color: white;
+	margin: 10px;
+	border-radius: 5px;
+	padding: 6px 8px;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+	.col-xl-2 {
+		flex: 0 0 auto;
+		width: 20%;
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.images img {
+		width: 100%;
+		height: auto;
+	}
+}

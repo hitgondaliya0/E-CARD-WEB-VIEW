@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap');
+.dashboard-card {
+    border-radius: 40px !important;
+background: #F5F5F5 !important;
+/* width: 308px; */
+/* height: 433px; */
+/* flex-shrink: 0; */
+}
+.edit-button {
+    position: absolute;
+    top: 6%;
+    left: 20rem;
+}
+.overlay-top{
+    position: relative;
+    bottom: 2rem;
+}
+.button-overlay-card {
+    position: relative;
+    top: 3rem;
+}
+.card-company-name{
+    color: var(--Black, #2A3342);
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.card-name {
+    color: #888FA6;
+text-align: center;
+font-family: Poppins;
+font-size: 13px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.card-button-gmail {
+    border-radius: 10px;
+background: #FFF;
+box-shadow: 4px 4px 8px 0px rgba(211, 218, 218, 0.75);
+border: none;
+color: #888FA6;
+text-align: center;
+font-family: Poppins;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+padding: 8px 20px;
+}
+.statistics-button {
+border-radius: 22px;
+background: #2A3342;
+padding: 8px 15px;
+border: none;
+}
+.share-button {
+border-radius: 22px;
+background: #FF643A;
+padding: 8px 15px;
+border: none;
+}
+@media only screen and (min-width: 1200px) {
+    .container-lg {
+        max-width: 35%;
+    }
+}

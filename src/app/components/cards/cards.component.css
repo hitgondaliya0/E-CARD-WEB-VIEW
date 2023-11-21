@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap');
+.edit-profile {
+    color: var(--Black, #2A3342);
+font-family: Inter;
+font-size: 25px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: -0.3px;
+}
+  .btn-password{
+    border-radius: 6px;
+background: #FF643A !important;
+border: none;
+}
+.input-change {
+    border-radius: 6px;
+border: 1px solid #CDD1E0;
+background: #FFF;
+}
+.help-label-gmail {
+  color: #888FA6;
+font-family: Poppins;
+/* font-size: 15px; */
+font-style: normal;
+font-weight: 500;
+/* line-height: normal; */
+}
+.help-gmail {
+  color: #2A3342;
+font-family: Poppins;
+/* font-size: 18px; */
+font-style: normal;
+font-weight: 500;
+/* line-height: normal; */
+}
+.label-gmail{
+  color: var(--Black, #2A3342);
+font-family: Inter;
+/* font-size: 12px; */
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.your-cards{
+    border-radius: 15px !important;
+background: #F5F5F5 !important;
+border: none !important;
+}
+.company-name{
+    color: var(--Black, #2A3342);
+text-align: center;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.company-label {
+color: #888FA6;
+text-align: center;
+font-family: Poppins;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 0px;
+}
+.center-cards{
+    align-items: center;
+    justify-content: center;
+}

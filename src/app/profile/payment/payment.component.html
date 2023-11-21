@@ -1,0 +1,268 @@
+<div>
+  <h5>Payment Details</h5>
+  <div class="col-12 col-xl-6 col-md-12 px-0">
+    <label class="label-text py-2">Select payment details for</label>
+    <div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox1"
+          value="option1"
+          [(ngModel)]="googlePayCheck"
+          (change)="checkIssue()"
+        />
+        <label class="form-check-label" for="inlineCheckbox1">Google Pay</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox2"
+          value="option2"
+          [(ngModel)]="phonePeCheck"
+        />
+        <label class="label-text form-check-label" for="inlineCheckbox2"
+          >PhonePe</label
+        >
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox3"
+          value="option3"
+          [(ngModel)]="paytmCheck"
+        />
+        <label class="label-text form-check-label" for="inlineCheckbox3"
+          >Paytm
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox4"
+          value="option4"
+          [(ngModel)]="accountDetailCheck"
+        />
+        <label class="label-text form-check-label" for="inlineCheckbox4"
+          >Account Details
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="paytmCheck" class="col-12 col-lg-6 col-md-6">
+      <div class="py-2">
+        <h5 class="py-2">Paytm</h5>
+        <div class="d-flex align-items-center">
+          <div class="dropzone">
+            <input
+              class="drag-drop-input"
+              type="file"
+              accept="image/*"
+              (change)="uploadPicture('paytm', $any($event).target.files)"
+            />
+            <div class="img-border">
+              <img
+                *ngIf="
+                  paytm.image == '' || paytm.image == null;
+                  else showPaytmImage
+                "
+                class="p-4"
+                src="assets/images/camera.svg"
+              />
+              <ng-template #showPaytmImage
+                ><img [src]="paytm.image" width="100%" height="100%"
+              /></ng-template>
+            </div>
+          </div>
+          <div style="width: 300px">
+            <label class="label-text px-3">Upload a QR Code Image</label>
+            <button
+              type="button"
+              class="btn btn-text primary px-3"
+              (click)="removePicture('paytm')"
+            >
+              Remove Picture
+            </button>
+          </div>
+        </div>
+        <div class="py-4">
+          <label class="form-label">Paytm Number</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Paytm Number"
+            [(ngModel)]="paytm.number"
+          />
+        </div>
+      </div>
+    </div>
+    <div *ngIf="phonePeCheck" class="col-12 col-lg-6 col-md-6">
+      <div class="py-2">
+        <h5 class="py-2">PhonePe</h5>
+        <div class="d-flex align-items-center">
+          <div class="dropzone">
+            <input
+              class="drag-drop-input"
+              type="file"
+              accept="image/*"
+              (change)="uploadPicture('phonepe', $any($event).target.files)"
+            />
+            <div class="img-border">
+              <img
+                *ngIf="
+                  phonePe.image == '' || phonePe.image == null;
+                  else showPhonePeImage
+                "
+                class="p-4"
+                src="assets/images/camera.svg"
+              />
+              <ng-template #showPhonePeImage
+                ><img [src]="phonePe.image" width="100%" height="100%"
+              /></ng-template>
+            </div>
+          </div>
+          <div style="width: 300px">
+            <label class="label-text px-3">Upload a QR Code Image</label>
+            <button
+              type="button"
+              class="btn btn-text primary px-3"
+              (click)="removePicture('phonepe')"
+            >
+              Remove Picture
+            </button>
+          </div>
+        </div>
+        <div class="py-4">
+          <label class="form-label">PhonePe Number</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="PhonePe Number"
+            [(ngModel)]="phonePe.number"
+          />
+        </div>
+      </div>
+    </div>
+    <div *ngIf="googlePayCheck" class="col-12 col-lg-6 col-md-6">
+      <div class="py-2">
+        <h5 class="py-2">Google Pay</h5>
+        <div class="d-flex align-items-center">
+          <div class="dropzone">
+            <input
+              class="drag-drop-input"
+              type="file"
+              accept="image/*"
+              (change)="uploadPicture('googlepay', $any($event).target.files)"
+            />
+            <div class="img-border">
+              <img
+                *ngIf="
+                  googlePay.image == '' || googlePay.image == null;
+                  else showGooglePayImage
+                "
+                class="p-4"
+                src="assets/images/camera.svg"
+              />
+              <ng-template #showGooglePayImage
+                ><img [src]="googlePay.image" width="100%" height="100%"
+              /></ng-template>
+            </div>
+          </div>
+          <div style="width: 300px">
+            <label class="label-text px-3">Upload a QR Code Image</label>
+            <button
+              type="button"
+              class="btn btn-text primary px-3"
+              (click)="removePicture('googlepay')"
+            >
+              Remove Picture
+            </button>
+          </div>
+        </div>
+        <div class="py-4">
+          <label class="form-label">Google Pay Number</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Google Pay Number"
+            [(ngModel)]="googlePay.number"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="accountDetailCheck" class="information py-4">
+    <h5>Account Details</h5>
+    <div class="row">
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Bank Name</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Bank Name"
+          [(ngModel)]="account.bankName"
+        />
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Account Number</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Account Number"
+          [(ngModel)]="account.number"
+        />
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">IFSC Code</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="IFSC Code"
+          [(ngModel)]="account.ifscCode"
+        />
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Account Name</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Account Name"
+          [(ngModel)]="account.name"
+        />
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Account Type</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Account Type"
+          [(ngModel)]="account.type"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button
+      *ngIf="userId; else showModal"
+      class="btn btn-primary btn-rounded btn-width btn-block"
+      type="button"
+      (click)="handleUpdatePaymentDetails()"
+    >
+      Save & continue
+    </button>
+    <ng-template #showModal>
+      <button
+        class="btn btn-primary btn-rounded btn-width btn-block"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loginModal-payment"
+      >
+        Save & continue
+      </button>
+    </ng-template>
+  </div>
+</div>

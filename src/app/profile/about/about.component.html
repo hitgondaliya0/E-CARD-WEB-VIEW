@@ -1,0 +1,56 @@
+<div>
+  <h5>About US</h5>
+  <div class="information py-4">
+    <div class="row">
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label">Year of establishment</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="2017"
+          [(ngModel)]="yearOfEstablishment"
+        />
+      </div>
+      <div class="col-12 col-lg-4 col-md-6 col-sm-6">
+        <label class="form-label"
+          >Type of business <label class="danger--message">*</label></label
+        >
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Manufacturer, Retailer, Wholesaler"
+          [(ngModel)]="typeOfBusiness"
+        />
+      </div>
+      <div class="col-12">
+        <label class="form-label">About product</label>
+        <div class="rich-text-editor">
+          <angular-editor
+            [(ngModel)]="aboutCompany"
+            [config]="config"
+          ></angular-editor>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button
+      *ngIf="userId; else showModal"
+      class="btn btn-primary btn-rounded btn-width btn-block"
+      type="button"
+      (click)="handleUpdateAboutDetails()"
+    >
+      Save & continue
+    </button>
+    <ng-template #showModal>
+      <button
+        class="btn btn-primary btn-rounded btn-width btn-block"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loginModal-about"
+      >
+        Save & continue
+      </button>
+    </ng-template>
+  </div>
+</div>

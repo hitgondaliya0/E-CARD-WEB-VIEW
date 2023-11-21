@@ -1,0 +1,119 @@
+<section
+  class="mt-3"
+  style="
+    position: absolute;
+    top: 0;
+    bottom: 65px;
+    left: 0px;
+    right: 0px;
+    overflow: auto;
+  "
+>
+  <div class="ms-3 me-3">
+    <h1 class="setting">Settings</h1>
+    <div class="mt-5">
+      <div class="row">
+        <div class="col-3">
+          <div class="me-auto">
+            <img
+              class="profile-logo"
+              src="../../../assets/setting-logo.svg"
+              width="100%"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-5 my-auto">
+          <div class="text-start mt-2">
+            <a routerLink="/profile-card" class="text-decoration-none"
+              ><h5 class="profile-name">Daniel</h5>
+              <p class="profile-username">+1 4844578842</p></a
+            >
+          </div>
+        </div>
+        <div class="col-3 my-auto">
+          <div class="ms-3">
+            <button
+              class="btn-edit-profile text-black"
+              routerLink="/edit-profile"
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="text-start">
+          <h3 class="setting-general">General</h3>
+          <a
+            routerLink="/change-password"
+            class="text-decoration-none text-black"
+          >
+            <h1 class="setting-menu mt-4">
+              <span class="me-4"
+                ><img
+                  src="../../../assets/change-password.svg"
+                  width="8%"
+                  alt="" /></span
+              >Change Password
+            </h1>
+          </a>
+          <a routerLink="/help" class="text-decoration-none text-black">
+            <h1 class="setting-menu mt-4">
+              <span class="me-4"
+                ><img
+                  src="../../../assets/give-feedback.svg"
+                  width="8%"
+                  alt="" /></span
+              >Give Feedback
+            </h1>
+          </a>
+          <a (click)="shareButton()" class="text-decoration-none text-black">
+            <h1 class="setting-menu mt-4">
+              <span class="me-4"
+                ><img
+                  src="../../../assets/share-1.svg"
+                  width="7.5%"
+                  alt="" /></span
+              >Share App
+            </h1>
+          </a>
+          <a (click)="rateButton()" class="text-decoration-none text-black">
+            <h1 class="setting-menu mt-4">
+              <span class="me-4"
+                ><img
+                  src="../../../assets/rate-us.svg"
+                  width="8%"
+                  alt="" /></span
+              >Rate Us
+            </h1>
+          </a>
+          <a (click)="logoutButton()" class="text-decoration-none text-black">
+            <h1 class="setting-menu mt-4">
+              <span class="me-4"
+                ><img
+                  src="../../../assets/logout-cut.svg"
+                  width="8%"
+                  alt="" /></span
+              >Logout
+            </h1>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div
+  id="footer"
+  style="
+    position: absolute;
+    bottom: 0px;
+    height: 65px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+  "
+>
+  <app-footer></app-footer>
+</div>

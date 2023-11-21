@@ -1,0 +1,96 @@
+.nav-link.active,
+.nav-link:hover {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 3px solid #f9896b;
+	color: #f9896b;
+}
+.nav-link {
+	color: #8994a5;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+.btn-outline-secondary,
+.btn-outline-secondary:hover {
+	border: 8px solid #eaecf8 !important;
+	box-shadow: 0px 21.8644px 14.2119px rgb(41 72 152 / 3%),
+		0px 8.90772px 7.12618px rgb(41 72 152 / 2%),
+		0px 2.02448px 3.44162px rgb(41 72 152 / 1%);
+	border-radius: 10.9322px !important;
+	height: 110px;
+	background: transparent;
+}
+
+.drag-drop-input {
+	opacity: 0;
+	position: absolute;
+	width: 110px;
+	height: 110px;
+	cursor: pointer;
+}
+.col-12 {
+	padding: 12px;
+}
+.social-links .form-control {
+	margin-left: 12px;
+}
+.border-radius {
+	border-radius: 7px !important;
+}
+
+.chip {
+	border: 8px solid #eaecf8 !important;
+	box-shadow: 0px 21.8644px 14.2119px rgb(41 72 152 / 3%),
+		0px 8.90772px 7.12618px rgb(41 72 152 / 2%),
+		0px 2.02448px 3.44162px rgb(41 72 152 / 1%);
+	border-radius: 10.9322px !important;
+	height: 60px;
+	background: transparent;
+}
+
+.img-border {
+	border: 8px solid #eaecf8 !important;
+	box-shadow: 0px 21.8644px 14.2119px rgb(41 72 152 / 3%),
+		0px 8.90772px 7.12618px rgb(41 72 152 / 2%),
+		0px 2.02448px 3.44162px rgb(41 72 152 / 1%);
+	border-radius: 10.9322px !important;
+	height: 110px;
+	width: 110px;
+	background: transparent;
+}
+
+.digital-card-url {
+	font-size: 19px !important;
+	letter-spacing: 0.3px;
+	font-weight: 600;
+}
+
+.card-url-bg {
+	background-color: #ffefeb;
+	border-radius: 12px;
+	border: none;
+}
+.card-url {
+	background-color: white;
+	color: #f9896b;
+	border-radius: 29px;
+	text-decoration: none;
+}
+.email-sign-card {
+	background-color: #2a3342;
+	border-radius: 12px;
+	border: none;
+	color: white;
+}
+.emailsign-img {
+	border-top-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+.rich-text-editor {
+	border: 8px solid #eaecf8 !important;
+	box-shadow: 0px 21.8644px 14.2119px rgba(41, 72, 152, 0.025),
+		0px 8.90772px 7.12618px rgba(41, 72, 152, 0.0196296),
+		0px 2.02448px 3.44162px rgba(41, 72, 152, 0.012037);
+	border-radius: 10.9322px !important;
+}

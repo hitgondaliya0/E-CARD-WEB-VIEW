@@ -1,0 +1,112 @@
+<div>
+  <h5>Product Details</h5>
+  <div class="row">
+    <div class="col-12" *ngFor="let product of products; let i = index">
+      <div class="row">
+        <div class="col-12 col-lg-6 col-md-6">
+          <div class="d-flex align-items-center">
+            <div class="dropzone">
+              <input
+                class="drag-drop-input"
+                type="file"
+                accept="image/*"
+                (change)="uploadImage($any($event).target.files, i)"
+              />
+              <div class="img-border">
+                <img
+                  *ngIf="
+                    product.image == '' || product.image == null;
+                    else showImage
+                  "
+                  class="p-4"
+                  src="assets/images/camera.svg"
+                />
+                <ng-template #showImage
+                  ><img [src]="product.image" width="100%" height="100%"
+                /></ng-template>
+              </div>
+            </div>
+            <div style="width: 300px">
+              <label class="label-text px-3">Upload a Product Image</label>
+              <button
+                type="button"
+                class="btn btn-text primary px-3"
+                (click)="removePicture(i)"
+              >
+                Remove Picture
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 col-md-6">
+          <label class="form-label"
+            >Product Name <label class="danger--message">*</label></label
+          >
+          <div class="d-flex">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Product Name"
+              [(ngModel)]="product.name"
+            />
+            <button
+              class="btn btn-text py-0"
+              *ngIf="i > 0"
+              (click)="
+                product.id == 0
+                  ? removeProductField(i)
+                  : removeProductDetail(product.id)
+              "
+            >
+              <img src="assets/images/delete-icon.svg" width="60" />
+            </button>
+          </div>
+        </div>
+        <div class="col-12">
+          <label class="form-label">About Us</label>
+          <textarea
+            type="text"
+            class="form-control form-control-lg"
+            rows="4"
+            [(ngModel)]="product.description"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-text px-0" (click)="addProductField()">
+      <i class="fas fa-plus-circle"></i> Add More
+    </button>
+  </div>
+
+  <div class="text-center">
+    <button
+      *ngIf="userId; else showModal"
+      class="btn btn-primary btn-rounded btn-width btn-block"
+      type="button"
+      (click)="handleUpdateProductDetails()"
+    >
+      Save & continue
+    </button>
+    <ng-template #showModal>
+      <button
+        *ngIf="products.length > 0; else showOtherButton"
+        class="btn btn-primary btn-rounded btn-width btn-block"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loginModal-product"
+      >
+        Save & continue
+      </button>
+    </ng-template>
+    <ng-template #showOtherButton>
+      <button
+        class="btn btn-primary btn-rounded btn-width btn-block"
+        type="button"
+      >
+        Save & continue
+      </button>
+    </ng-template>
+  </div>
+</div>

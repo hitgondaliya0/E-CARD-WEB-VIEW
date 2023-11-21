@@ -1,0 +1,166 @@
+<section
+  class="mt-3"
+  style="
+    position: absolute;
+    top: 0;
+    bottom: 65px;
+    left: 0px;
+    right: 0px;
+    overflow: auto;
+  "
+>
+  <div class="ms-3 me-3">
+    <h1 class="edit-profile">
+      <span class="me-4"
+        ><a routerLink="/setting"
+          ><img
+            src="../../../assets/arrow-left.svg"
+            width="10%"
+            alt="" /></a></span
+      >Edit profile
+    </h1>
+    <div class="mt-5">
+      <div class="text-center">
+        <img src="../../../assets/user-default.svg" width="30%" alt="" />
+      </div>
+      <div class="row mt-5 mx-auto">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >User Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              [(ngModel)]="username"
+              [ngModelOptions]="{ standalone: true }"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              [(ngModel)]="email"
+              [ngModelOptions]="{ standalone: true }"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputMobile" class="form-label"
+              >Mobile Number</label
+            >
+            <div class="input-group">
+              <div class="input-group-prepend me-1">
+                <!-- Add a select dropdown for ISD code -->
+                <select
+                  class="form-select form-control"
+                  [(ngModel)]="isdCode"
+                  name="isdCode"
+                >
+                  <option value="91">+91 (IN)</option>
+                  <option value="1">+1 (USA)</option>
+                  <option value="44">+44 (UK)</option>
+                  <!-- Add more ISD codes as needed -->
+                </select>
+              </div>
+              <!-- Update the input type to text for phone numbers with leading zeros -->
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputMobile"
+                aria-describedby="emailHelp"
+                placeholder="Enter your mobile number"
+                [(ngModel)]="mobile"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            (click)="saveEdit()"
+            class="btn btn-primary btn-save w-100"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+  <div class="fixed-bottom" role="document">
+    <div class="modal-content modal-edit">
+      <div class="row">
+        <div class="text-center mt-2">
+          <a (click)="closeModal()" class="text-decoration-none"
+            ><img src="../../assets/header-modal.svg" alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title modal-title-style">OTP</h5>
+        <button
+          type="button"
+          style="border: none; background-color: transparent"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M6.4 19L5 17.6L10.6 12L5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19Z"
+              fill="#888FA6"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Modal content goes here -->
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1" class="label-gmail"
+              >OTP</label
+            >
+            <input
+              type="number"
+              class="form-control mt-2"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              placeholder="OTP"
+              [(ngModel)]="otp"
+              [ngModelOptions]="{ standalone: true }"
+            />
+          </div>
+
+          <button
+            type="submit"
+            (click)="onsubmit()"
+            class="btn btn-primary btn-password w-100 mt-4"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer
+  style="
+    position: absolute;
+    bottom: 0px;
+    height: 65px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+  "
+></app-footer>

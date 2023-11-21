@@ -1,0 +1,64 @@
+<section>
+  <footer>
+    <div class="bg-light">
+      <div class="container">
+        <div class="row fixed-bottom00 bg-light tabs">
+          <div
+            routerLinkActive="active"
+            [routerLink]="['/home']"
+            class="col-4 col-lg-4 col-md-4 col-sm-4 mt-2"
+          >
+            <a
+              routerLink="home"
+              class="text-decoration-none text-black"
+              data-toggle="tab"
+              role="tab"
+              href="#Tab1"
+            >
+              <div class="text-center">
+                <img src="../../assets/home-black.svg" alt="" />
+                <p class="footer-home">Cards</p>
+              </div>
+            </a>
+          </div>
+          <div
+            routerLinkActive="active"
+            [routerLink]="['/profile']"
+            class="col-4 col-lg-4 col-md-4 col-sm-4 mt-2"
+          >
+            <a
+              routerLink="/profile"
+              class="text-decoration-none text-black"
+              data-toggle="tab"
+              role="tab"
+              href="#Tab2"
+            >
+              <div class="text-center">
+                <img src="../../assets/create-add.svg" alt="" />
+                <p class="footer-home">Create Card</p>
+              </div>
+            </a>
+          </div>
+          <div
+            routerLinkActive="active"
+            [routerLink]="['/setting']"
+            class="col-4 col-lg-4 col-md-4 col-sm-4 mt-2"
+          >
+            <a
+              routerLink="/setting"
+              class="text-decoration-none text-black"
+              data-toggle="tab"
+              role="tab"
+              href="#Tab3"
+            >
+              <div class="text-center">
+                <img src="../../assets/setting.svg" alt="" />
+                <p class="footer-home">Settings</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>
