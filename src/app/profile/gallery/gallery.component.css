@@ -38,3 +38,11 @@
 		height: auto;
 	}
 }
+.btn-save {
+	width: 100%;
+	border-radius: 6px;
+background: #FF643A;
+text-transform: capitalize;
+font-weight: 500;
+}
+

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
+import { CompanyserviceService } from 'src/service/companyservice.service';
 
 @Component({
   selector: 'app-setting',
@@ -10,6 +13,11 @@ import { environment } from 'src/environments/environment';
 export class SettingComponent {
   Web_URL = environment.Web_URL;
   call_javascript_code : any;
+  UserId : string = localStorage.getItem('userId')!;
+  email: string;
+  mobile : string;
+  username : string;
+  isdCode : string;
   logoutButton() {
     console.log("Logout button clicked");
     // window.postMessage('logout');
@@ -28,6 +36,29 @@ rateButton() {
   console.log("Rate Us button clicked");
   //@ts-ignore
  window.call_javascript_code.postMessage("rateus");
+}
+
+constructor(
+  private toastr: ToastrService,
+  private companyService: CompanyserviceService,
+  private router: Router
+) {}
+ngOnInit() {
+  this.getEditprofile();
+}
+getEditprofile() {
+  console.log("woo hoooo , it's calling in Edit Profile");
+  this.UserId =  localStorage.getItem('userId')!;
+  this.companyService
+    .getEditProfile( this.UserId)
+    .subscribe((res) => {
+      if (res.StatusCode == 1) {
+        this.email = res.Data.Email;
+        this.mobile = res.Data.MobileNo;
+        this.username = res.Data.UserName;
+        this.isdCode = res.Data.IsdCode;
+      }
+    });
 }
 
 }

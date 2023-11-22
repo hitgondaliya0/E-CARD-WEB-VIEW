@@ -41,7 +41,7 @@ export class PaymentComponent {
 	phonePeCheck!: boolean;
 	accountDetailCheck!: boolean;
 	cardId: number = 0 ;
-	userId: string = 'JVWq97vXD30=';
+	userId: string =  localStorage.getItem('userId')!;
 	companyId: number = parseInt(localStorage.getItem('companyId')!);
 	isLogged: string = localStorage.getItem('isLogged')!;
 	companyName: string = localStorage.getItem('CompanyName')!;
@@ -75,7 +75,7 @@ export class PaymentComponent {
 	}
 
 	handleUpdatePaymentDetails() {
-		this.userId = 'JVWq97vXD30=';
+		this.userId = localStorage.getItem('userId')!;
 		if (!this.companyId && this.companyId != 0) {
 			this.companyId = parseInt(localStorage.getItem('companyId')!);
 		}

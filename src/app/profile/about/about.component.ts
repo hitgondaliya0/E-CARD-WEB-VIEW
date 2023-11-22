@@ -55,7 +55,7 @@ export class AboutComponent {
 	typeOfBusiness: string = '';
 	aboutCompany!: string;
 	cardId : number = 0 ;
-	userId: string = 'JVWq97vXD30=';
+	userId: string =  localStorage.getItem('userId')!;
 	companyId: number = parseInt(localStorage.getItem('companyId')!);
 	isLogged: string = localStorage.getItem('isLogged')!;
 	companyName: string = localStorage.getItem('CompanyName')!;
@@ -67,7 +67,6 @@ export class AboutComponent {
 
 	ngOnInit() {
 		if (this.userId) this.getAboutDetails();
-		localStorage.setItem('userId', 'JVWq97vXD30=');
 	}
 
 	handleUpdateAboutDetails() {
@@ -80,7 +79,7 @@ export class AboutComponent {
 				window.location.reload();
 				return;
 			}
-		this.userId = 'JVWq97vXD30=';
+		this.userId =  localStorage.getItem('userId')!;
 		this.companyId = parseInt(localStorage.getItem('companyId')!);
 
 		const model: AboutRequest = {

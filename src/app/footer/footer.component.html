@@ -6,6 +6,7 @@
           <div
             routerLinkActive="active"
             [routerLink]="['/home']"
+            [queryParams]="{ userId: userId }"
             class="col-4 col-lg-4 col-md-4 col-sm-4 mt-2"
           >
             <a
@@ -14,9 +15,19 @@
               data-toggle="tab"
               role="tab"
               href="#Tab1"
+              (click)="home()"
             >
               <div class="text-center">
-                <img src="../../assets/home-black.svg" alt="" />
+                <div class="container" style="max-width: 80% !important">
+                  <div class="footer-logo">
+                    <img
+                      src="../../assets/home-black.svg"
+                      class="img-home"
+                      style="padding: 6px 10px"
+                      alt=""
+                    />
+                  </div>
+                </div>
                 <p class="footer-home">Cards</p>
               </div>
             </a>
@@ -32,9 +43,19 @@
               data-toggle="tab"
               role="tab"
               href="#Tab2"
+              (click)="createcard()"
             >
               <div class="text-center">
-                <img src="../../assets/create-add.svg" alt="" />
+                <div class="container" style="max-width: 80% !important">
+                  <div class="footer-logo">
+                    <img
+                      src="../../assets/create-add.svg"
+                      class="img-createcard"
+                      style="padding: 6px 10px"
+                      alt=""
+                    />
+                  </div>
+                </div>
                 <p class="footer-home">Create Card</p>
               </div>
             </a>
@@ -50,9 +71,19 @@
               data-toggle="tab"
               role="tab"
               href="#Tab3"
+              (click)="setting()"
             >
               <div class="text-center">
-                <img src="../../assets/setting.svg" alt="" />
+                <div class="container" style="max-width: 80% !important">
+                  <div class="footer-logo">
+                    <img
+                      src="../../assets/setting.svg"
+                      class="img-setting"
+                      style="padding: 6px 10px"
+                      alt=""
+                    />
+                  </div>
+                </div>
                 <p class="footer-home">Settings</p>
               </div>
             </a>

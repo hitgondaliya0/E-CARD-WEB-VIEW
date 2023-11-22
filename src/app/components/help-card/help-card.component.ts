@@ -10,9 +10,8 @@ import { CompanyserviceService } from 'src/service/companyservice.service';
   styleUrls: ['./help-card.component.css']
 })
 export class HelpCardComponent {
-  UserId : any = 'JVWq97vXD30=';
+  UserId : string = localStorage.getItem('userId')!;
   feedback:string;
-  // Feedback : String = '';
   Feedback = new FormControl(null,[
     (c: AbstractControl) => Validators.required(c),
     Validators.pattern('.{1,}'),

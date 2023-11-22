@@ -41,7 +41,7 @@ export class HomeWebComponent {
 
 	companyForm!: UntypedFormGroup;
   
-	userId:string ='JVWq97vXD30=';
+	userId:string = localStorage.getItem('userId')!;
 	companyId: string = (localStorage.getItem('companyId')!);
 	isLogged: string = localStorage.getItem('isLogged')!;
 	companyName: string = localStorage.getItem('CompanyName')!;
@@ -101,7 +101,7 @@ export class HomeWebComponent {
 	}
 
 	handleUpdateCompanyDetails() {
-		this.userId = "JVWq97vXD30=";
+		this.userId =  localStorage.getItem('userId')!;
 		this.companyId = (localStorage.getItem('companyId')!);
 		if (this.companyOwnersList.length == 0) {
 			return;
@@ -187,7 +187,7 @@ export class HomeWebComponent {
 	}
 
 	async checkCardUrl() {
-		this.userId = "JVWq97vXD30=";
+		this.userId =  localStorage.getItem('userId')!;
 		this.companyId = (localStorage.getItem('companyId')!);
 		const tempUrl = this.name.replace(' ', '-');
 		ShowLoader();

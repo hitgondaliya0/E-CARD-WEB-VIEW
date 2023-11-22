@@ -11,7 +11,15 @@
   "
 >
   <div class="ms-3 me-3">
-    <h1 class="setting">Profile</h1>
+    <h1 class="setting">
+      <span class="me-2"
+        ><a routerLink="/setting"
+          ><img
+            src="../../../assets/arrow-left.svg"
+            width="24px"
+            alt="" /></a></span
+      >Profile
+    </h1>
     <div class="mt-5">
       <div class="row">
         <div class="col-3">
@@ -24,14 +32,14 @@
             />
           </div>
         </div>
-        <div class="col-6 mt-2">
-          <div class="text-start">
-            <h5 class="profile-name">Daniel</h5>
-            <p class="profile-username">+1 4844578842</p>
+        <div class="col-5 my-auto">
+          <div class="text-start mt-2">
+            <h5 class="profile-name">{{ username }}</h5>
+            <p class="profile-username">{{ "+" + isdCode + mobile }}</p>
           </div>
         </div>
         <div class="col-3 my-auto">
-          <div class="">
+          <div class="ms-3">
             <button
               class="btn-edit-profile text-black"
               routerLink="/edit-profile"
@@ -94,13 +102,3 @@
     </div>
   </div>
 </section>
-<app-footer
-  style="
-    position: absolute;
-    bottom: 0px;
-    height: 65px;
-    left: 0px;
-    right: 0px;
-    overflow: hidden;
-  "
-></app-footer>

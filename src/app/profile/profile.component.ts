@@ -11,7 +11,7 @@ import { HideLoader, ShowLoader } from '../shared/show-hide-loader';
 })
 export class ProfileComponent {
 	isLoadChildComponent: boolean = true;
-	userId: string = "JVWq97vXD30=";
+	userId: string =  localStorage.getItem('userId')!;
 	gallery: any;
 	payment: any;
 	companyProfile: any;
@@ -33,7 +33,7 @@ export class ProfileComponent {
 
 	getCompanyDetails() {
 		console.log("woo hoooo , it's calling");
-		this.userId = 'JVWq97vXD30=';
+		this.userId =  localStorage.getItem('userId')!;
 		this.isLoadChildComponent = false;
 		ShowLoader();
 		this.companyService

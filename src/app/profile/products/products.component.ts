@@ -21,7 +21,7 @@ export class ProductComponent {
 			description: ''
 		}
 	];
-	userId: number =27;
+	userId: string = localStorage.getItem('userId')!;
 	cardId : number = 0;
 	companyId: number = parseInt(localStorage.getItem('companyId')!);
 	isLogged: string = localStorage.getItem('isLogged')!;
@@ -73,7 +73,7 @@ export class ProductComponent {
 				window.location.reload();
 				return;
 			}
-		this.userId = 27;
+		this.userId =  localStorage.getItem('userId')!;
 		this.companyId = parseInt(localStorage.getItem('companyId')!);
 		if (this.products[this.products.length - 1]['name'] == '') {
 			this.toastr.error('Please add product name!');

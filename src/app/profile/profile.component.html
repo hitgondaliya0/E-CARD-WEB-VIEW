@@ -10,31 +10,13 @@
   "
 >
   <div class="container-fluid px-lg-5 px-md-3">
-    <div class="py-4 text-center">
-      <h3>Free E-Digital Card Generator</h3>
-      <label class="py-2 label-text"
-        >Create your free custom E-Digital Card with our easy-to-use
-        generator.</label
-      >
-      <div class="card-url-bg py-4" *ngIf="cardUrl">
-        <img src="assets/images/pin.svg" width="50" />
-        <label class="label-text px-md-2 py-2"
-          >Get your digital card link
-          <a
-            class="py-2 px-3 ms-md-2 card-url"
-            [href]="Web_URL + cardUrl"
-            target="_blank"
-            >{{ Web_URL + cardUrl }}</a
-          >
-        </label>
-        <button
-          (click)="copyMessage()"
-          class="btn btn-primary btn-rounded px-3 py-2 mx-2"
-        >
-          Copy Link
-        </button>
-      </div>
-    </div>
+    <h1 class="edit-profile mt-4">
+      <span class="me-2"
+        ><a [routerLink]="['/home']" [queryParams]="{ userId: userId }"
+          ><img src="../../../assets/cross.svg" width="24px" alt="" /></a
+      ></span>
+      Create Card
+    </h1>
     <div class="sections py-4">
       <div>
         <nav class="pb-5">

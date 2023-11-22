@@ -9,6 +9,7 @@ import { DataserviceService } from './dataservice.service';
 	providedIn: 'root'
 })
 export class CompanyserviceService {
+	userId : string = localStorage.getItem('userId')!;
 	companyProfileEndPoint: string = 'api/v1/DigitalCard/UpdateCompanyDetails';
 	companyAboutEndPoint: string = 'api/v1/DigitalCard/UpdateAboutUsDetails';
 	companyProductEndPoint: string = 'api/v1/DigitalCard/UpdateProductDetails';
@@ -24,6 +25,7 @@ export class CompanyserviceService {
 		'api/v1/DigitalCard/CheckDuplicateCardUrl';
 		ChangePasswordEndPoint : string = 'api/V1/DigitalCard/ChangePassword';
 		GetProfileByIdEnPoint : string = 'api/V1/DigitalCard/GetProfileById'
+		GetAllCardsDetailsEndPoint : string = 'api/v1/DigitalCard/GetCardDetails';
 		EditProfileEndPoint : string = 'api/V1/DigitalCard/EditProfile';
 		UserFeedbackEndPoint : string = 'api/V1/DigitalCard/UserFeedback';
 		verifyOtpEndPoint : string = 'api/V1/Authentication/VerifyOTP'
@@ -93,6 +95,9 @@ export class CompanyserviceService {
 
 	getEditProfile(UserId : string) {
 		return this.service.get(`${this.GetProfileByIdEnPoint}?UserId=${UserId}`);
+	}
+	getAllCardsDetails(UserId : string) {
+		return this.service.get(`${this.GetAllCardsDetailsEndPoint}?UserId=${UserId}`);
 	}
 	updateProfile(req: {
 		UserId: any;
