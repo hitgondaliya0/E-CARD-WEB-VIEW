@@ -1,0 +1,35 @@
+<div>
+  <h5>Digital Card URL</h5>
+  <div class="py-4 d-flex align-items-center"></div>
+  <div class="information">
+    <form [formGroup]="companyForm">
+      <div *ngIf="userId" class="col-12 col-lg-12 col-md-12 col-sm-12">
+        <label class="form-label"
+          >Digital Card URL<label class="danger--message">*</label></label
+        >
+        <div class="input-group text-center align-items-center">
+          <h4 class="form-label label-text digital-card-url">
+            {{ Web_URL }}
+          </h4>
+          <div class="d-flex align-items-center col-md-4 col-12 px-0">
+            <input
+              type="text"
+              class="form-control col-md-4 form-control-lg mx-md-2"
+              placeholder="Digital Card URL"
+              [(ngModel)]="cardUrl"
+              formControlName="cardUrl"
+              (blur)="cardUrl ? checkCardUrl() : ''"
+            />
+            <button
+              *ngIf="isShowCardCopyButton && cardUrl"
+              (click)="copyUrl()"
+              class="btn btn-primary mx-2 border-radius"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

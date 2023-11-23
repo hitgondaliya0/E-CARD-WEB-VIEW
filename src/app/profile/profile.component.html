@@ -82,6 +82,20 @@
               Payment Details
             </button>
             <button
+              [class]="activeTab == 'url' ? 'active' : ''"
+              class="nav-link"
+              id="nav-gallery-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-url"
+              type="button"
+              role="tab"
+              aria-controls="nav-url"
+              aria-selected="false"
+              (click)="activeTab = 'url'"
+            >
+              URL
+            </button>
+            <button
               [class]="activeTab == 'gallery' ? 'active' : ''"
               class="nav-link"
               id="nav-gallery-tab"
@@ -159,6 +173,15 @@
               *ngIf="isLoadChildComponent"
               [gallery]="gallery"
             ></app-gallery>
+          </div>
+          <div
+            [class]="activeTab == 'url' ? 'show active' : ''"
+            class="tab-pane fade"
+            id="nav-url"
+            role="tabpanel"
+            aria-labelledby="nav-url-tab"
+          >
+            <app-url *ngIf="isLoadChildComponent" [url]="url"></app-url>
           </div>
         </div>
       </div>

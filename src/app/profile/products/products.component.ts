@@ -22,7 +22,7 @@ export class ProductComponent {
 		}
 	];
 	userId: string = localStorage.getItem('userId')!;
-	cardId : number = 0;
+	cardId : number = parseInt(localStorage.getItem('cardId')!);
 	companyId: number = parseInt(localStorage.getItem('companyId')!);
 	isLogged: string = localStorage.getItem('isLogged')!;
 	companyName: string = localStorage.getItem('CompanyName')!;

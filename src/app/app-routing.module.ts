@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { HelpCardComponent } from './components/help-card/help-card.component';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+import { VerifyOtpComponent } from './components/verify-otp/verify-otp.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,9 @@ const routes: Routes = [
   },
   {
     path : '', redirectTo : '/home', pathMatch : 'full'
+  },
+  {
+    path :'verify-otp' , component : VerifyOtpComponent
   }
   // , {
   //   path :'**', redirectTo : '/home' , pathMatch : 'full'

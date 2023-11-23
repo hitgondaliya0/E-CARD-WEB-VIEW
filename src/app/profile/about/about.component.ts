@@ -54,7 +54,7 @@ export class AboutComponent {
 	yearOfEstablishment!: string;
 	typeOfBusiness: string = '';
 	aboutCompany!: string;
-	cardId : number = 0 ;
+	cardId : number = parseInt(localStorage.getItem('cardId')!);
 	userId: string =  localStorage.getItem('userId')!;
 	companyId: number = parseInt(localStorage.getItem('companyId')!);
 	isLogged: string = localStorage.getItem('isLogged')!;
@@ -108,9 +108,9 @@ export class AboutComponent {
 
 	getAboutDetails() {
 		// console.log(this.yearOfEstablishment);
-		const data = this.aboutCompanyDetail;
-		this.yearOfEstablishment = data.yearOfEstablishment;
-		this.typeOfBusiness = data.typeOfBusiness;
-		this.aboutCompany = data.aboutCompany;
+		const data = this.aboutCompanyDetail!;
+		this.yearOfEstablishment = data.yearOfEstablishment!;
+		this.typeOfBusiness = data.typeOfBusiness!;
+		this.aboutCompany = data.aboutCompany!;
 	}
 }

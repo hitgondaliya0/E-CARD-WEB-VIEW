@@ -33,6 +33,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { NgOtpInputModule } from 'ng-otp-input';
+import { UrlComponent } from './profile/url/url.component';
+import { VerifyOtpComponent } from './components/verify-otp/verify-otp.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { NgOtpInputModule } from 'ng-otp-input';
     ProductComponent,
     HomeWebComponent,
     ProfileCardComponent,
+    UrlComponent,
+    VerifyOtpComponent,
   ],
   imports: [
     BrowserAnimationsModule,

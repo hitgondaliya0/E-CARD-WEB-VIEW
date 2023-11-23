@@ -17,7 +17,7 @@ export class GalleryComponent {
 	userId: string =  localStorage.getItem('userId')!;
 	companyId: number = parseInt(localStorage.getItem('companyId')!);
 	companyName: string = localStorage.getItem('CompanyName')!;
-	cardId : number = 0 ;
+	cardId : number = parseInt(localStorage.getItem('cardId')!);
 
 	constructor(
 		private toastr: ToastrService,

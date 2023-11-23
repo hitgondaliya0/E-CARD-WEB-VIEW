@@ -40,7 +40,7 @@ export class PaymentComponent {
 	paytmCheck!: boolean;
 	phonePeCheck!: boolean;
 	accountDetailCheck!: boolean;
-	cardId: number = 0 ;
+	cardId : number = parseInt(localStorage.getItem('cardId')!);
 	userId: string =  localStorage.getItem('userId')!;
 	companyId: number = parseInt(localStorage.getItem('companyId')!);
 	isLogged: string = localStorage.getItem('isLogged')!;

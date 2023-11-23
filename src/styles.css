@@ -140,7 +140,7 @@ input.form-control:focus {
 .loader {
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	left: 43%;
 	transform: translate(-50%, -50%);
 	width: 60px;
 	height: 60px;
@@ -239,8 +239,10 @@ input.form-control:focus {
 	left: 12px;
   }
   .toast-top-right {
-	top: 12px;
-	right: 12px;
+	/* top: 85%;
+	left: 13%; */
+	right: 13%;
+	bottom: 9%;
   }
   .toast-bottom-right {
 	right: 12px;

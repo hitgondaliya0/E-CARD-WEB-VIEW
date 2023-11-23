@@ -14,6 +14,7 @@ export class ProfileComponent {
 	userId: string =  localStorage.getItem('userId')!;
 	gallery: any;
 	payment: any;
+	url:any;
 	companyProfile: any;
 	companyName: '';
 	aboutCompany: any;
@@ -61,6 +62,7 @@ export class ProfileComponent {
 					this.aboutCompany = aboutCompanyDetails;
 					this.payment = PaymentDetails;
 					this.gallery = GalleryDetails;
+					this.url = CompanyDetails.CardUrl;
 					this.isLoadChildComponent = true;
 				}
 			});

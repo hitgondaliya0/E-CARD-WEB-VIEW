@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class CardCarouselComponent { 
   UserId: string =localStorage.getItem('userId')!;
   animations?: any[];
+  modaldark: boolean = false;
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -45,6 +46,8 @@ export class CardCarouselComponent {
 	) {}
   ngOnInit() {
     this.getAllCardDetails();
+    localStorage.setItem('modaldark', JSON.stringify(this.modaldark));
+
   }
   getAllCardDetails() {
 		console.log("woo hoooo , it's calling in Edit Profile");
@@ -64,12 +67,20 @@ export class CardCarouselComponent {
     $('#myModal').css('display', 'block');
     $('.dashboard-card').css('background-color', 'rgba(0,0,0,0.2)');
     $('.dashboard-card').css('opacity', '0.2');
+    // $('.carousel-dark').css('opacity', '0.2');
+    // $('.carousel-dark').css('background', 'rgba(0, 0, 0, 0.5)');
+    this.modaldark = true;
+    localStorage.setItem('modaldark', JSON.stringify(this.modaldark));
+
 
   }
   
   closeModal() {
     $('#myModal').css('display', 'none');
     $('.dashboard-card').css('opacity', '1');
+    this.modaldark = false;
+    localStorage.setItem('modaldark', JSON.stringify(this.modaldark));
+
   }
 
 
