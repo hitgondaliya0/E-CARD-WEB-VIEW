@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap');
+.edit-profile {
+color: var(--Black, #2A3342);
+font-family: Inter;
+font-size: 23px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: -0.3px;
+}
 .nav-link.active,
 .nav-link:hover {
 	border-top: none;
@@ -88,9 +99,17 @@
 	border-bottom-right-radius: 12px;
 }
 .rich-text-editor {
-	border: 8px solid #eaecf8 !important;
+	border: 2px solid #eaecf8 !important;
 	box-shadow: 0px 21.8644px 14.2119px rgba(41, 72, 152, 0.025),
 		0px 8.90772px 7.12618px rgba(41, 72, 152, 0.0196296),
 		0px 2.02448px 3.44162px rgba(41, 72, 152, 0.012037);
 	border-radius: 10.9322px !important;
 }
+.btn-save {
+	width: 100%;
+	border-radius: 6px;
+background: #FF643A;
+text-transform: capitalize;
+font-weight: 600;
+}
+

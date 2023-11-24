@@ -11,9 +11,10 @@ import { HideLoader, ShowLoader } from '../shared/show-hide-loader';
 })
 export class ProfileComponent {
 	isLoadChildComponent: boolean = true;
-	userId: string = "JVWq97vXD30=";
+	userId: string =  localStorage.getItem('userId')!;
 	gallery: any;
 	payment: any;
+	url:any;
 	companyProfile: any;
 	companyName: '';
 	aboutCompany: any;
@@ -33,7 +34,7 @@ export class ProfileComponent {
 
 	getCompanyDetails() {
 		console.log("woo hoooo , it's calling");
-		this.userId = 'JVWq97vXD30=';
+		this.userId =  localStorage.getItem('userId')!;
 		this.isLoadChildComponent = false;
 		ShowLoader();
 		this.companyService
@@ -61,6 +62,7 @@ export class ProfileComponent {
 					this.aboutCompany = aboutCompanyDetails;
 					this.payment = PaymentDetails;
 					this.gallery = GalleryDetails;
+					this.url = CompanyDetails.CardUrl;
 					this.isLoadChildComponent = true;
 				}
 			});

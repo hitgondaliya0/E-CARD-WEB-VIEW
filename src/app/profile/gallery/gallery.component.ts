@@ -14,10 +14,10 @@ export class GalleryComponent {
 	API_URL: string = environment.API_URL;
 	@Input() gallery: any = [];
 	imageList: any = [];
-	userId: string = 'JVWq97vXD30=';
+	userId: string =  localStorage.getItem('userId')!;
 	companyId: number = parseInt(localStorage.getItem('companyId')!);
 	companyName: string = localStorage.getItem('CompanyName')!;
-	cardId : number = 0 ;
+	cardId : number = parseInt(localStorage.getItem('cardId')!);
 
 	constructor(
 		private toastr: ToastrService,
@@ -63,7 +63,7 @@ export class GalleryComponent {
 				window.location.reload();
 			}
 		}
-		this.userId = 'JVWq97vXD30=';
+		this.userId =  localStorage.getItem('userId')!;
 		this.companyId = parseInt(localStorage.getItem('companyId')!);
 		this.companyName = localStorage.getItem('CompanyName')!;
 		

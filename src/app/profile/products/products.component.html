@@ -83,7 +83,7 @@
   <div class="text-center">
     <button
       *ngIf="userId; else showModal"
-      class="btn btn-primary btn-rounded btn-width btn-block"
+      class="btn btn-primary btn-rounded btn-width btn-block btn-save"
       type="button"
       (click)="handleUpdateProductDetails()"
     >
@@ -92,7 +92,7 @@
     <ng-template #showModal>
       <button
         *ngIf="products.length > 0; else showOtherButton"
-        class="btn btn-primary btn-rounded btn-width btn-block"
+        class="btn btn-primary btn-rounded btn-width btn-block btn-save"
         type="button"
         data-bs-toggle="modal"
         data-bs-target="#loginModal-product"
@@ -102,7 +102,7 @@
     </ng-template>
     <ng-template #showOtherButton>
       <button
-        class="btn btn-primary btn-rounded btn-width btn-block"
+        class="btn btn-primary btn-rounded btn-width btn-block btn-save"
         type="button"
       >
         Save & continue

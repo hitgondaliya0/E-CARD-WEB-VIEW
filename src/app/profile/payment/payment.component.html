@@ -248,7 +248,7 @@
   <div class="text-center">
     <button
       *ngIf="userId; else showModal"
-      class="btn btn-primary btn-rounded btn-width btn-block"
+      class="btn btn-primary btn-rounded btn-width btn-block btn-save"
       type="button"
       (click)="handleUpdatePaymentDetails()"
     >
@@ -256,7 +256,7 @@
     </button>
     <ng-template #showModal>
       <button
-        class="btn btn-primary btn-rounded btn-width btn-block"
+        class="btn btn-primary btn-rounded btn-width btn-block btn-save"
         type="button"
         data-bs-toggle="modal"
         data-bs-target="#loginModal-payment"

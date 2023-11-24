@@ -12,12 +12,12 @@ import { CompanyserviceService } from 'src/service/companyservice.service';
 import { ProfileRequest } from 'src/shared/models/profileRequest';
 
 @Component({
-  selector: 'app-home-web',
-  templateUrl: './home-web.component.html',
-  styleUrls: ['./home-web.component.css']
+  selector: 'app-url',
+  templateUrl: './url.component.html',
+  styleUrls: ['./url.component.css']
 })
-export class HomeWebComponent {
-  @Input() companyDetails: any;
+export class UrlComponent {
+  @Input() url: any;
 	@Output() updateTabName = new EventEmitter<any>();
 	companyOwnersList: Array<string> = [];
 	companyOwner: string = '';
@@ -37,14 +37,14 @@ export class HomeWebComponent {
 	youtubeLink: string = '';
 	telegramLink: string = '';
 	manualLink: string = '';
-	cardId: number = 0 ;
+	cardId : number = parseInt(localStorage.getItem('cardId')!);
 
 	companyForm!: UntypedFormGroup;
   
 	userId:string = localStorage.getItem('userId')!;
 	companyId: string = (localStorage.getItem('companyId')!);
 	isLogged: string = localStorage.getItem('isLogged')!;
-	companyName: string = localStorage.getItem('CompanyName')!;
+	companyName: string = '';
   
 	cardUrl: string = '';
 	isShowCardCopyButton: boolean = false;
@@ -59,7 +59,7 @@ export class HomeWebComponent {
     ) {}
     
     ngOnInit() {
-      console.log(this.userId);
+      console.log(this.url);
       this.companyForm = this.fb.group({
 			name: [null, [Validators.required]],
 			address: [null, [Validators.required]],
@@ -75,31 +75,6 @@ export class HomeWebComponent {
 	get f() {
 		return this.companyForm.controls;
 	}
-
-	uploadProfilePicture(files: FileList) {
-		const imageFile = files[0];
-		const reader = new FileReader();
-		let rawImg;
-		reader.onloadend = () => {
-			rawImg = reader.result;
-			this.profilePicture = rawImg!.toString();
-		};
-		reader.readAsDataURL(imageFile);
-	}
-
-	removeProfilePicture() {
-		this.profilePicture = null!;
-	}
-
-	addOwner() {
-		this.companyOwnersList.push(this.companyOwner);
-		this.companyOwner = '';
-	}
-
-	deleteOwner(id: number) {
-		this.companyOwnersList.splice(id, 1);
-	}
-
 	handleUpdateCompanyDetails() {
 		this.userId =  localStorage.getItem('userId')!;
 		this.companyId = (localStorage.getItem('companyId')!);
@@ -137,9 +112,6 @@ export class HomeWebComponent {
 			if (res.StatusCode == 1) {
 				this.toastr.success(res.Message);
 				this.isShowCardCopyButton = true;
-				this.cardId = res.Data;
-				localStorage.setItem('cardId', JSON.stringify(this.cardId));
-				console.log(this.cardId);
 				if (this.isLogged || this.companyName) {
 					this.updateTabName.emit(this.cardUrl);
 				} else {
@@ -154,7 +126,7 @@ export class HomeWebComponent {
 
 	checkValidation() {
 		if (this.companyOwnersList.length == 0) {
-			return false; 
+			return false;
 		}
 		if (this.companyForm.invalid) {
 			validateAllFormFields(this.companyForm);
@@ -164,7 +136,8 @@ export class HomeWebComponent {
 	}
 
 	getCompanyDetails() {
-		const data = this.companyDetails;
+
+		const data = this.url;
 		this.name = data.Name;
 		if (data.CompanyLogo != null && data.CompanyLogo != '')
 			this.profilePicture = environment.API_URL + data.CompanyLogo;

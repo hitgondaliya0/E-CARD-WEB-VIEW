@@ -5,54 +5,78 @@
         <div class="row fixed-bottom00 bg-light tabs">
           <div
             routerLinkActive="active"
-            [routerLink]="['/home']"
+            [routerLinkActiveOptions]="{exact: true}"
             class="col-4 col-lg-4 col-md-4 col-sm-4 mt-2"
           >
             <a
-              routerLink="home"
+              [routerLink]="['/home']"
+              [queryParams]="{ userId: userId }"
               class="text-decoration-none text-black"
-              data-toggle="tab"
-              role="tab"
-              href="#Tab1"
+              (click)="home()"
             >
               <div class="text-center">
-                <img src="../../assets/home-black.svg" alt="" />
+                <div class="container" style="max-width: 80% !important">
+                  <div class="footer-logo">
+                    <img
+                      [src]="
+                        isActive('/home') ? Home.activeUrl : Home.inactiveUrl
+                      "
+                      class="img-home"
+                      style="padding: 6px 10px"
+                      alt=""
+                    />
+                  </div>
+                </div>
                 <p class="footer-home">Cards</p>
               </div>
             </a>
           </div>
           <div
-            routerLinkActive="active"
             [routerLink]="['/profile']"
+            routerLinkActive="active"
             class="col-4 col-lg-4 col-md-4 col-sm-4 mt-2"
           >
-            <a
-              routerLink="/profile"
-              class="text-decoration-none text-black"
-              data-toggle="tab"
-              role="tab"
-              href="#Tab2"
-            >
+            <a routerLink="/profile" class="text-decoration-none text-black">
               <div class="text-center">
-                <img src="../../assets/create-add.svg" alt="" />
+                <div class="container" style="max-width: 80% !important">
+                  <div class="footer-logo">
+                    <img
+                      [src]="
+                        isActive('/profile')
+                          ? Createcard.activeUrl
+                          : Createcard.inactiveUrl
+                      "
+                      class="img-createcard"
+                      style="padding: 6px 10px"
+                      alt=""
+                    />
+                  </div>
+                </div>
                 <p class="footer-home">Create Card</p>
               </div>
             </a>
           </div>
           <div
-            routerLinkActive="active"
             [routerLink]="['/setting']"
+            routerLinkActive="active"
             class="col-4 col-lg-4 col-md-4 col-sm-4 mt-2"
           >
-            <a
-              routerLink="/setting"
-              class="text-decoration-none text-black"
-              data-toggle="tab"
-              role="tab"
-              href="#Tab3"
-            >
+            <a routerLink="/setting" class="text-decoration-none text-black">
               <div class="text-center">
-                <img src="../../assets/setting.svg" alt="" />
+                <div class="container" style="max-width: 80% !important">
+                  <div class="footer-logo">
+                    <img
+                      [src]="
+                        isActive('/setting')
+                          ? Setting.activeUrl
+                          : Setting.inactiveUrl
+                      "
+                      class="img-setting"
+                      style="padding: 6px 10px"
+                      alt=""
+                    />
+                  </div>
+                </div>
                 <p class="footer-home">Settings</p>
               </div>
             </a>

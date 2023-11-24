@@ -26,6 +26,15 @@ import { ProductComponent } from './profile/products/products.component';
 import { HomeWebComponent } from './profile/home-web/home-web.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { UrlComponent } from './profile/url/url.component';
+import { VerifyOtpComponent } from './components/verify-otp/verify-otp.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +56,8 @@ import { ProfileCardComponent } from './components/profile-card/profile-card.com
     ProductComponent,
     HomeWebComponent,
     ProfileCardComponent,
+    UrlComponent,
+    VerifyOtpComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -59,7 +70,13 @@ import { ProfileCardComponent } from './components/profile-card/profile-card.com
     HttpClientModule,
     ToastrModule.forRoot(),
 		ToastNoAnimationModule.forRoot(),
-    AngularEditorModule
+    AngularEditorModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    NgOtpInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

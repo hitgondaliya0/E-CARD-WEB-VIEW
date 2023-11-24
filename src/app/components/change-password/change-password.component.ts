@@ -16,7 +16,7 @@ import {
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent {
-  userId: string = "JVWq97vXD30=";
+  userId: string = localStorage.getItem('userId')!;
   OldPassword : string ;
   NewPassword : string ;
   ConfirmPassword : string;

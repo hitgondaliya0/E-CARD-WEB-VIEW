@@ -1,6 +1,64 @@
-<owl-carousel-o [options]="customOptions" [ngClass]="{ item: true }">
-  <ng-template carouselSlide>
-    <div>
+<div class="carousel-dark">
+  <owl-carousel-o [options]="customOptions" [ngClass]="{ item: true }">
+    <ng-template carouselSlide>
+      <div>
+        <div class="card dashboard-card">
+          <div class="text-center">
+            <img
+              src="../../assets/bg-card.svg"
+              width="100%"
+              alt=""
+              style="width: 100% !important"
+            />
+            <img
+              class="edit-button"
+              src="../../assets/edit-button.svg"
+              alt=""
+            />
+            <div class="text-center overlay-top">
+              <img class="logo-image" src="../../assets/logo.svg" alt="" />
+              <h2 class="card-company-name">Ark Infosoft</h2>
+              <p class="card-name">Ajaysinh Barad</p>
+              <p class="mt-3 card-name container">
+                I have a passion for design, creativity, case study, and
+                research. Currently, design via Figma and Adobe XD...
+              </p>
+              <button class="card-button-gmail">
+                contact&#64;arkinfosoft.com
+              </button>
+              <div class="row mt-3">
+                <div class="col-12">
+                  <img src="../../assets/twiiter.svg" alt="" />
+                  <img src="../../assets/fb.svg" alt="" />
+                  <img src="../../assets/insta.svg" alt="" />
+                  <img src="../../assets/linkedin-1.svg" alt="" />
+                  <img src="../../assets/git.svg" alt="" />
+                  <img src="../../assets/web.svg" alt="" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 button-overlay-card">
+                  <button
+                    class="statistics-button text-white"
+                    (click)="openModal()"
+                  >
+                    <span class="me-1"
+                      ><img src="../../assets/Statistics.svg" alt="" /></span
+                    >Statistics
+                  </button>
+                  <button class="share-button text-white ms-2">
+                    <span class="me-1"
+                      ><img src="../../assets/share.svg" alt="" /></span
+                    >Share
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
       <div class="card dashboard-card">
         <div class="text-center">
           <img
@@ -14,7 +72,7 @@
             <img class="logo-image" src="../../assets/logo.svg" alt="" />
             <h2 class="card-company-name">Ark Infosoft</h2>
             <p class="card-name">Ajaysinh Barad</p>
-            <p class="mt-3 card-name container">
+            <p class="mt-4 card-name">
               I have a passion for design, creativity, case study, and research.
               Currently, design via Figma and Adobe XD...
             </p>
@@ -51,109 +109,61 @@
           </div>
         </div>
       </div>
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
-    <div class="card dashboard-card">
-      <div class="text-center">
-        <img
-          src="../../assets/bg-card.svg"
-          width="100%"
-          alt=""
-          style="width: 100% !important"
-        />
-        <img class="edit-button" src="../../assets/edit-button.svg" alt="" />
-        <div class="text-center overlay-top">
-          <img class="logo-image" src="../../assets/logo.svg" alt="" />
-          <h2 class="card-company-name">Ark Infosoft</h2>
-          <p class="card-name">Ajaysinh Barad</p>
-          <p class="mt-4 card-name">
-            I have a passion for design, creativity, case study, and research.
-            Currently, design via Figma and Adobe XD...
-          </p>
-          <button class="card-button-gmail">contact&#64;arkinfosoft.com</button>
-          <div class="row mt-3">
-            <div class="col-12">
-              <img src="../../assets/twiiter.svg" alt="" />
-              <img src="../../assets/fb.svg" alt="" />
-              <img src="../../assets/insta.svg" alt="" />
-              <img src="../../assets/linkedin-1.svg" alt="" />
-              <img src="../../assets/git.svg" alt="" />
-              <img src="../../assets/web.svg" alt="" />
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="card dashboard-card">
+        <div class="text-center">
+          <img
+            src="../../assets/bg-card.svg"
+            width="100%"
+            alt=""
+            style="width: 100% !important"
+          />
+          <img class="edit-button" src="../../assets/edit-button.svg" alt="" />
+          <div class="text-center overlay-top">
+            <img class="logo-image" src="../../assets/logo.svg" alt="" />
+            <h2 class="card-company-name">Ark Infosoft</h2>
+            <p class="card-name">Ajaysinh Barad</p>
+            <p class="mt-4 card-name">
+              I have a passion for design, creativity, case study, and research.
+              Currently, design via Figma and Adobe XD...
+            </p>
+            <button class="card-button-gmail">
+              contact&#64;arkinfosoft.com
+            </button>
+            <div class="row mt-3">
+              <div class="col-12">
+                <img src="../../assets/twiiter.svg" alt="" />
+                <img src="../../assets/fb.svg" alt="" />
+                <img src="../../assets/insta.svg" alt="" />
+                <img src="../../assets/linkedin-1.svg" alt="" />
+                <img src="../../assets/git.svg" alt="" />
+                <img src="../../assets/web.svg" alt="" />
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-12 button-overlay-card">
-              <button
-                class="statistics-button text-white"
-                (click)="openModal()"
-              >
-                <span class="me-1"
-                  ><img src="../../assets/Statistics.svg" alt="" /></span
-                >Statistics
-              </button>
-              <button class="share-button text-white ms-2">
-                <span class="me-1"
-                  ><img src="../../assets/share.svg" alt="" /></span
-                >Share
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
-    <div class="card dashboard-card">
-      <div class="text-center">
-        <img
-          src="../../assets/bg-card.svg"
-          width="100%"
-          alt=""
-          style="width: 100% !important"
-        />
-        <img class="edit-button" src="../../assets/edit-button.svg" alt="" />
-        <div class="text-center overlay-top">
-          <img class="logo-image" src="../../assets/logo.svg" alt="" />
-          <h2 class="card-company-name">Ark Infosoft</h2>
-          <p class="card-name">Ajaysinh Barad</p>
-          <p class="mt-4 card-name">
-            I have a passion for design, creativity, case study, and research.
-            Currently, design via Figma and Adobe XD...
-          </p>
-          <button class="card-button-gmail">contact&#64;arkinfosoft.com</button>
-          <div class="row mt-3">
-            <div class="col-12">
-              <img src="../../assets/twiiter.svg" alt="" />
-              <img src="../../assets/fb.svg" alt="" />
-              <img src="../../assets/insta.svg" alt="" />
-              <img src="../../assets/linkedin-1.svg" alt="" />
-              <img src="../../assets/git.svg" alt="" />
-              <img src="../../assets/web.svg" alt="" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 button-overlay-card">
-              <button
-                class="statistics-button text-white"
-                (click)="openModal()"
-              >
-                <span class="me-1"
-                  ><img src="../../assets/Statistics.svg" alt="" /></span
-                >Statistics
-              </button>
-              <button class="share-button text-white ms-2">
-                <span class="me-1"
-                  ><img src="../../assets/share.svg" alt="" /></span
-                >Share
-              </button>
+            <div class="row">
+              <div class="col-12 button-overlay-card">
+                <button
+                  class="statistics-button text-white"
+                  (click)="openModal()"
+                >
+                  <span class="me-1"
+                    ><img src="../../assets/Statistics.svg" alt="" /></span
+                  >Statistics
+                </button>
+                <button class="share-button text-white ms-2">
+                  <span class="me-1"
+                    ><img src="../../assets/share.svg" alt="" /></span
+                  >Share
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div></ng-template
-  >
-</owl-carousel-o>
+      </div></ng-template
+    >
+  </owl-carousel-o>
+</div>
 <div id="myModal" class="modal" tabindex="-1" role="dialog">
   <div class="fixed-bottom" role="document">
     <div class="modal-content modal-edit">

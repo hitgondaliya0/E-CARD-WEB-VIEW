@@ -3,7 +3,7 @@
 .edit-profile {
     color: var(--Black, #2A3342);
 font-family: Inter;
-font-size: 25px;
+font-size: 23px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
@@ -13,6 +13,7 @@ letter-spacing: -0.3px;
     border-radius: 6px;
 background: #FF643A !important;
 border: none;
+font-weight: 600;
 }
 .input-change {
     border-radius: 6px;

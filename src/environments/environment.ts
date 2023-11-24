@@ -4,6 +4,15 @@
 
 export const environment = {
 	production: false,
+		firebase: {
+		  apiKey: "AIzaSyC-3zD-6GAR0z_zTRmc9ev65kCmoNFF_Xc",
+		  authDomain: "ecard-digital-card-mobile-app.firebaseapp.com",
+		  projectId: "ecard-digital-card-mobile-app",
+		  storageBucket: "ecard-digital-card-mobile-app.appspot.com",
+		  messagingSenderId: "162311371998",
+		  appId: "1:162311371998:web:e63b407aa8a157b9b0d64f",
+		  measurementId: "G-34WC1E4EGJ"
+		},
 
 	//Api urls
 	//API_URL: 'https://localhost:44348/', //local

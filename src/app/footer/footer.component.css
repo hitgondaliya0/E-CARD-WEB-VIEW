@@ -10,19 +10,16 @@ font-style: normal;
 font-weight: 500;
 line-height: 16px; /* 133.333% */
 }
-
-.tab1,.tab2,.tab3{
-  /* text-decoration: underline; */
-  background-color: red;
-
-}
 .tabs .col-4 {
   cursor: pointer;
 }
 
 .tabs .col-4.active {
-  background-color: orange; /* Change this to your desired active tab background color */
-  border-radius: 10px;
+  .footer-logo {
+    background-color: #FF643A;
+  border-radius: 20px;
   align-items: center;
   text-align: center;
+  }
+  
 }

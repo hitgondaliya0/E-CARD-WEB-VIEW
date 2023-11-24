@@ -10,10 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { HelpCardComponent } from './components/help-card/help-card.component';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+import { VerifyOtpComponent } from './components/verify-otp/verify-otp.component';
 
 const routes: Routes = [
   {
-    path : 'home', component : HomeComponent
+    path : 'home' , component : HomeComponent 
   },
   {
     path : 'card-carousel' , component : CardCarouselComponent
@@ -41,13 +42,16 @@ const routes: Routes = [
   },
   {
     path : 'change-password' , component : ChangePasswordComponent
-  }, 
+  },
   {
     path : '', redirectTo : '/home', pathMatch : 'full'
+  },
+  {
+    path :'verify-otp' , component : VerifyOtpComponent
   }
-  , {
-    path :'**', redirectTo : '/home' , pathMatch : 'full'
-  }
+  // , {
+  //   path :'**', redirectTo : '/home' , pathMatch : 'full'
+  // }
 ];
 
 @NgModule({
@@ -55,5 +59,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-  
  }
